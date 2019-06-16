@@ -1,0 +1,12 @@
+<map id="gslc_tsGui" name="gslc_tsGui">
+<area shape="rect" id="node2" href="$structgslc__tsRect.html" title="Rectangular region. Defines X,Y corner coordinates plus dimensions. " alt="" coords="76,5,169,32"/>
+<area shape="rect" id="node4" href="$structgslc__tsPage.html" title="Page structure. " alt="" coords="266,451,363,477"/>
+<area shape="rect" id="node7" href="$structgslc__tsElem.html" title="Element Struct. " alt="" coords="313,168,412,195"/>
+<area shape="rect" id="node3" href="$structgslc__tsInputMap.html" title="Input mapping. " alt="" coords="65,451,191,477"/>
+<area shape="rect" id="node5" href="$structgslc__tsCollect.html" title="Element collection struct. " alt="" coords="265,361,375,388"/>
+<area shape="rect" id="node6" href="$structgslc__tsElemRef.html" title="Element reference structure. " alt="" coords="372,257,489,284"/>
+<area shape="rect" id="node8" href="$structgslc__tsEvent.html" title="Event structure. " alt="" coords="463,5,566,32"/>
+<area shape="rect" id="node9" href="$structgslc__tsFont.html" title="Font reference structure. " alt="" coords="194,5,289,32"/>
+<area shape="rect" id="node10" href="$structgslc__tsImgRef.html" title="Image reference structure. " alt="" coords="636,5,745,32"/>
+<area shape="rect" id="node11" href="$structgslc__tsColor.html" title="Color structure. Defines RGB triplet. " alt="" coords="313,5,412,32"/>
+</map>
