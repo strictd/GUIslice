@@ -210,6 +210,12 @@ void gslc_ElemXSliderSetPosFunc(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef,GSLC_C
   pSlider->pfuncXPos = funcCb;
 }
 
+void gslc_ElemXSliderSetTicks(gslc_tsGui* pGui,gslc_tsElemRef* pElemRef, double * nTickArr, int nTickArrLen) {
+  gslc_tsElem*      pElem = gslc_GetElemFromRef(pGui,pElemRef);
+  gslc_tsXSlider*   pSlider = (gslc_tsXSlider*)(pElem->pXData);
+  pSlider->nTickArr = nTickArr;
+  pSlider->nTickArrLen = nTickArrLen;
+}
 
 // Redraw the slider
 // - Note that this redraw is for the entire element rect region
@@ -246,6 +252,8 @@ bool gslc_ElemXSliderDraw(void* pvGui,void* pvElemRef,gslc_teRedrawType eRedraw)
   uint16_t        nTickDiv  = pSlider->nTickDiv;
   int16_t         nTickLen  = pSlider->nTickLen;
   gslc_tsColor    colTick   = pSlider->colTick;
+  double *        nTickArr  = pSlider->nTickArr;
+  int             nTickArrLen = pSlider->nTickArrLen;
 
   // Range check on nPos
   if (nPos < nPosMin) { nPos = nPosMin; }
@@ -297,6 +305,14 @@ bool gslc_ElemXSliderDraw(void* pvGui,void* pvElemRef,gslc_teRedrawType eRedraw)
         gslc_DrawLine(pGui,nXMid,nY0+nMargin+ nTickOffset,
                 nXMid+nTickLen,nY0+nMargin + nTickOffset,colTick);
       }
+    }
+  }
+
+  if (nTickArr) {
+    for (size_t i = 0; i < nTickArrLen; i++) {
+      if (nTickArr[i] == 0) { continue; }
+      int16_t xOffset = pElem->rElem.w * (double)(nTickArr[i] / 100);
+      gslc_DrawLine(pGui,xOffset+nMargin,250,xOffset+nMargin,285,GSLC_COL_GRAY);
     }
   }
 
