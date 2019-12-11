@@ -73,6 +73,8 @@ typedef struct {
   int16_t         nPos;           ///< Current position value of the slider
   // Callbacks
   GSLC_CB_XSLIDER_POS pfuncXPos;  ///< Callback func ptr for position update
+  // EventType
+  gslc_teTouch    eTouch;         ///< Touch event type
 } gslc_tsXSlider;
 
 
@@ -229,6 +231,7 @@ bool gslc_ElemXSliderTouch(void* pvGui,void* pvElemRef,gslc_teTouch eTouch,int16
   sSlider##nElemId.colTrim = GSLC_COL_BLACK;                      \
   sSlider##nElemId.nPos = nPos_;                                  \
   sSlider##nElemId.pfuncXPos = NULL;                              \
+  sSlider##nElemId.eTouch = GSLC_TOUCH_NONE;                                 \
   static const gslc_tsElem sElem##nElemId PROGMEM = {             \
       nElemId,                                                    \
       nFeatures##nElemId,                                         \
@@ -276,6 +279,7 @@ bool gslc_ElemXSliderTouch(void* pvGui,void* pvElemRef,gslc_teTouch eTouch,int16
   sSlider##nElemId.colTrim = GSLC_COL_BLACK;                      \
   sSlider##nElemId.nPos = nPos_;                                  \
   sSlider##nElemId.pfuncXPos = NULL;                              \
+  sSlider##nElemId.eTouch = GSLC_TOUCH_NONE;                                 \
   static const gslc_tsElem sElem##nElemId = {                     \
       nElemId,                                                    \
       nFeatures##nElemId,                                         \

@@ -102,6 +102,7 @@ gslc_tsElemRef* gslc_ElemXSliderCreate(gslc_tsGui* pGui,int16_t nElemId,int16_t 
   pXData->colTrim         = GSLC_COL_BLACK;
   pXData->nTickDiv        = 0;
   pXData->pfuncXPos       = NULL;
+  pXData->eTouch          = GSLC_TOUCH_NONE;
   sElem.pXData            = (void*)(pXData);
   // Specify the custom drawing callback
   sElem.pfuncXDraw        = &gslc_ElemXSliderDraw;
@@ -378,6 +379,7 @@ bool gslc_ElemXSliderTouch(void* pvGui,void* pvElemRef,gslc_teTouch eTouch,int16
   pElemRef  = (gslc_tsElemRef*)(pvElemRef);
   pElem     = gslc_GetElemFromRef(pGui,pElemRef);
   pSlider   = (gslc_tsXSlider*)(pElem->pXData);
+  pSlider->eTouch = eTouch;
 
   bool    bGlowingOld = gslc_ElemGetGlow(pGui,pElemRef);
   int16_t nPosRng;
